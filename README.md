@@ -250,8 +250,10 @@ Project/
 
 ## Author
 
-**Raavi Chandra Siddhartha**/ 
+**Raavi Chandra Siddhartha**
+---
 **Bhairam Hasini Mourya**
+---
 Indian Institute of Technology Indore
 
 ---
