@@ -1,0 +1,119 @@
+clc
+clear
+close all
+
+%% Vehicle Parameters
+
+m = 300;          % Vehicle mass (kg)
+g = 9.81;         % Gravity (m/s^2)
+h = 0.3;          % CG height (m)
+t = 1.2;          % Track width (m)
+ay = 1.2*g;       % 1.2g lateral acceleration
+
+%% Total Vehicle Weight
+
+W_total = m*g;
+
+%% Static Wheel Loads
+
+W_static = W_total/4;
+
+FL_static = W_static;
+FR_static = W_static;
+RL_static = W_static;
+RR_static = W_static;
+
+%% Lateral Load Transfer
+
+deltaW = (m*ay*h)/t;
+
+%% Dynamic Wheel Loads
+% Assume left turn:
+% Right wheels are outside wheels
+
+FL = W_static - deltaW/2;
+FR = W_static + deltaW/2;
+RL = W_static - deltaW/2;
+RR = W_static + deltaW/2;
+
+%% Display Results
+
+fprintf('Static Load per Wheel = %.2f N\n',W_static);
+fprintf('Total Load Transfer = %.2f N\n\n',deltaW);
+
+fprintf('Front Left Wheel Load = %.2f N\n',FL);
+fprintf('Front Right Wheel Load = %.2f N\n',FR);
+fprintf('Rear Left Wheel Load = %.2f N\n',RL);
+fprintf('Rear Right Wheel Load = %.2f N\n',RR);
+
+%% -------------------------------------------------
+%% Plot 1 : Dynamic Wheel Loads
+%% -------------------------------------------------
+
+wheel_loads = [FL FR RL RR];
+
+figure
+bar(wheel_loads)
+grid on
+
+xticklabels({'FL','FR','RL','RR'})
+xlabel('Wheel Position')
+ylabel('Wheel Load (N)')
+title('Dynamic Wheel Loads During 1.2g Cornering')
+
+%% -------------------------------------------------
+%% Plot 2 : Static vs Dynamic Wheel Loads
+%% -------------------------------------------------
+
+static_loads = [FL_static FR_static RL_static RR_static];
+dynamic_loads = [FL FR RL RR];
+
+figure
+bar([static_loads;dynamic_loads]')
+
+grid on
+xticklabels({'FL','FR','RL','RR'})
+xlabel('Wheel Position')
+ylabel('Wheel Load (N)')
+title('Static and Dynamic Wheel Loads')
+
+legend('Static','Dynamic')
+
+%% -------------------------------------------------
+%% Plot 3 : Front Axle Wheel Loads
+%% -------------------------------------------------
+
+front_loads = [FL FR];
+
+figure
+bar(front_loads)
+
+grid on
+xticklabels({'Front Left','Front Right'})
+ylabel('Wheel Load (N)')
+title('Front Axle Dynamic Wheel Loads')
+
+%% -------------------------------------------------
+%% Plot 4 : Rear Axle Wheel Loads
+%% -------------------------------------------------
+
+rear_loads = [RL RR];
+
+figure
+bar(rear_loads)
+
+grid on
+xticklabels({'Rear Left','Rear Right'})
+ylabel('Wheel Load (N)')
+title('Rear Axle Dynamic Wheel Loads')
+
+%% -------------------------------------------------
+%% Plot 5 : Load Distribution Pie Chart
+%% -------------------------------------------------
+
+figure
+pie(wheel_loads)
+
+legend('FL','FR','RL','RR')
+title('Wheel Load Distribution During 1.2g Turn')
+
