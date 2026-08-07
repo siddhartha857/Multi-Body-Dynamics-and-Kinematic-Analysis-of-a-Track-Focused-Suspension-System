@@ -184,9 +184,6 @@ The developed suspension geometry is analyzed throughout suspension travel to st
 The analysis includes:
 
 * Camber variation
-* Caster variation
-* Toe variation
-* Track width variation
 * Roll centre location
 * Roll centre migration
 * Motion ratio
