@@ -287,7 +287,4 @@ The developed models are used to study vehicle ride, handling, transient respons
 ---
 Indian Institute of Technology Indore
 
----
 
-Upcoming phase:
-- Structural analysis and optimization using Abaqus
