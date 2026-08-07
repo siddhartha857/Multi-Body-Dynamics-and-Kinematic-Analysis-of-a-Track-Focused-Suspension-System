@@ -1,232 +1,256 @@
 # Multi-Body Dynamics and Kinematic Analysis of a Track-Focused Suspension System
 
+# Multi-Body Dynamics and Kinematic Analysis of a Track-Focused Suspension System
+
 ## Overview
 
-This project focuses on the development, simulation, and analysis of a track-focused race car suspension system. The objective is to study vehicle ride and handling characteristics using mathematical models, suspension geometry design, and dynamic simulations.
+This repository presents the mathematical modeling, simulation workflows, suspension kinematic analysis, and dynamic performance analysis of a track-focused race car suspension system.
 
-The project includes:
-
-- Quarter Car Model
-- Full Car Model
-- Bicycle Model
-- Curb-Hit Analysis
-- High-Speed Cornering Analysis
-- Tire Load Transfer Analysis
-- Double Wishbone Suspension Design
-- Hardpoint Coordinate Development
-- AutoCAD Geometry Modeling
+The project covers vehicle ride dynamics, full vehicle body dynamics, handling analysis, transient curb-hit response, tire load transfer, and the development of a double wishbone suspension geometry using three-dimensional hardpoints and a SolidWorks wireframe model.
 
 ---
 
-## Project Objectives
-
-- Develop mathematical models for ride and handling analysis.
-- Study vertical, roll, and pitch dynamics of the vehicle.
-- Analyze transient response during curb-hit disturbances.
-- Investigate handling behavior during high-speed cornering.
-- Perform tire load transfer analysis under 1.2g cornering conditions.
-- Design a double wishbone suspension geometry using 3D hardpoints.
-- Create a CAD model of the suspension system.
-- Prepare the design for structural analysis and optimization.
-
----
-
-## Methodology
+## Technical Methodology
 
 ```text
-Literature Survey
-        ↓
+Literature Survey & Target Definition
+                 ↓
 Quarter Car Model
-        ↓
+                 ↓
 Full Car Model
-        ↓
-Curb-Hit Analysis
-        ↓
+                 ↓
+Curb-Hit Transient Response Analysis
+                 ↓
 Bicycle Model
-        ↓
+                 ↓
 High-Speed Cornering Analysis
-        ↓
+                 ↓
 Tire Load Transfer Analysis
-        ↓
-Suspension Hardpoint Design
-        ↓
-AutoCAD Geometry Development
-        ↓
-Abaqus FEA (Future Work)
-        ↓
-Optimization and Validation
+                 ↓
+Suspension Hardpoint Development
+                 ↓
+SolidWorks Wireframe Model
+                 ↓
+Suspension Kinematic Analysis
+                 ↓
+Roll Centre Migration Analysis
+                 ↓
+Motion Ratio Analysis
+                 ↓
+Final Validation
 ```
 
 ---
 
-## Models Developed
+## Mathematical Models Developed
 
-### Quarter Car Model
+### 1. Quarter Car Model
 
-Purpose:
+The Quarter Car Model is developed to study the vertical dynamics of the vehicle.
 
-- Analyze ride comfort and vertical vehicle dynamics.
-- Study sprung and unsprung mass behavior.
-- Evaluate suspension response to road disturbances.
+**Purpose:**
 
-Outputs:
+* Study sprung and unsprung mass behavior.
+* Analyze suspension response to road disturbances.
+* Study wheel and body vertical motion.
+* Evaluate suspension deflection.
 
-- Body displacement
-- Suspension deflection
-- Wheel displacement
+**Outputs:**
 
----
-
-### Full Car Model
-
-Purpose:
-
-- Analyze complete vehicle body dynamics.
-- Study heave, roll, and pitch motions.
-- Evaluate vehicle response during curb-hit events.
-
-Degrees of Freedom:
-
-- Heave
-- Roll
-- Pitch
-- Four wheel vertical motions
-
-Outputs:
-
-- Body displacement
-- Roll angle
-- Pitch angle
+* Sprung mass displacement
+* Unsprung mass displacement
+* Suspension deflection
+* Wheel displacement
+* Body vertical response
 
 ---
 
-### Bicycle Model
+### 2. Full Car Model
 
-Purpose:
+The Full Car Model is developed to study the complete vehicle body dynamics.
 
-- Analyze vehicle handling and stability.
-- Simulate steering maneuvers.
-- Evaluate cornering performance.
+**Purpose:**
 
-Inputs:
+* Study vehicle heave motion.
+* Study roll motion.
+* Study pitch motion.
+* Analyze individual wheel responses.
+* Investigate vehicle response to asymmetric road disturbances.
 
-- Steering angle
+**Outputs:**
 
-Outputs:
-
-- Side-slip angle
-- Yaw rate
-- Lateral acceleration
-
----
-
-## High-Speed Cornering Analysis
-
-A 2-DOF Bicycle Model was used to simulate a high-speed cornering maneuver.
-
-### Vehicle Parameters
-
-| Parameter | Value |
-|------------|--------|
-| Vehicle Mass | 300 kg |
-| Yaw Inertia | 120 kg·m² |
-| Distance CG → Front Axle | 0.8 m |
-| Distance CG → Rear Axle | 0.8 m |
-| Vehicle Speed | 15 m/s |
-| Front Cornering Stiffness | 45000 N/rad |
-| Rear Cornering Stiffness | 35000 N/rad |
-| Steering Input | 5° (0.0873 rad) |
-
-### Results
-
-- Achieved approximately 1.2g lateral acceleration.
-- Stable yaw rate response observed.
-- Dynamic tire load transfer evaluated.
+* Heave displacement
+* Roll angle
+* Pitch angle
+* Wheel vertical responses
+* Suspension responses
 
 ---
 
-## Tire Load Transfer Analysis
+### 3. Bicycle Model
 
-Load transfer during cornering was calculated using:
+The Bicycle Model is developed to study the lateral dynamics and handling behavior of the vehicle.
 
-ΔW = (m × ay × h) / t
+**Purpose:**
 
-Where:
+* Study steering response.
+* Analyze yaw dynamics.
+* Evaluate vehicle side-slip behavior.
+* Study lateral vehicle response during cornering.
 
-- m = Vehicle mass
-- ay = Lateral acceleration
-- h = CG height
-- t = Track width
+**Outputs:**
 
-Outputs:
-
-- Front Left Wheel Load
-- Front Right Wheel Load
-- Rear Left Wheel Load
-- Rear Right Wheel Load
+* Yaw rate
+* Side-slip angle
+* Lateral acceleration
 
 ---
 
-## Suspension Design
+## Dynamic Analysis
 
-### Suspension Type
+### Curb-Hit Analysis
 
-Double Wishbone Suspension
+A transient curb-hit analysis is performed to study the response of the vehicle when subjected to a sudden track disturbance.
 
-### Alignment Targets
+The analysis focuses on:
 
-| Parameter | Value |
-|------------|--------|
-| Camber | -2° |
-| Caster | 6° |
-| KPI | 8° |
-| Toe | -0.5° |
+* Vertical vehicle response
+* Roll response
+* Pitch response
+* Wheel response
+* Suspension response
+
+---
+
+### High-Speed Cornering Analysis
+
+The Bicycle Model is used to study vehicle behavior during high-speed cornering.
+
+The analysis focuses on:
+
+* Yaw behavior
+* Side-slip behavior
+* Lateral acceleration
+* Vehicle handling response
+
+---
+
+### Tire Load Transfer Analysis
+
+Tire load transfer is analyzed to study the redistribution of vertical loads between the wheels during cornering.
+
+The analysis focuses on:
+
+* Inner and outer wheel loading
+* Front and rear load distribution
+* Dynamic tire loading
+* Effect of lateral acceleration on wheel loads
+
+---
+
+## Suspension Geometry
+
+### Double Wishbone Suspension
+
+A double wishbone suspension geometry is developed using three-dimensional hardpoint coordinates.
+
+The hardpoint layout defines the suspension arms, steering linkage, pushrod mechanism, rocker, and damper mounting locations.
 
 ### Hardpoints Developed
 
-- Upper Control Arm Front
-- Upper Control Arm Rear
-- Upper Ball Joint
-- Lower Control Arm Front
-- Lower Control Arm Rear
-- Lower Ball Joint
-- Wheel Center
-- Tie Rod Inner
-- Tie Rod Outer
+* Wheel Center
+* LCA Outboard
+* UCA Outboard
+* LCA Inboard Front
+* LCA Inboard Rear
+* UCA Inboard Front
+* UCA Inboard Rear
+* Pushrod–LCA
+* Pushrod–Rocker
+* Rocker Pivot
+* Damper–Rocker
+* Damper–Chassis
+* Tie Rod Inner
+* Tie Rod Outer
+
+These hardpoints are used to define the suspension geometry and perform the subsequent kinematic analysis.
 
 ---
 
-## Software Used
+## Suspension Kinematic Analysis
 
-- MATLAB
-- Simulink
-- AutoCAD
-- Abaqus (Planned)
+The developed suspension geometry is analyzed throughout suspension travel to study its kinematic behavior.
+
+The analysis includes:
+
+* Camber variation
+* Caster variation
+* Toe variation
+* Track width variation
+* Roll centre location
+* Roll centre migration
+* Motion ratio
 
 ---
 
-## Current Progress (Mid-Evaluation)
+### Roll Centre Migration
+
+Roll centre migration is analyzed to determine how the suspension roll centre changes with suspension movement.
+
+This helps evaluate the geometric behavior of the suspension during wheel travel.
+
+---
+
+### Motion Ratio Analysis
+
+Motion ratio is evaluated to determine the relationship between wheel movement and suspension movement.
+
+This helps understand the effect of suspension geometry on the effective suspension behavior.
+
+---
+
+## SolidWorks Wireframe Development
+
+The developed suspension hardpoints were used to create a **wireframe representation of the suspension geometry in SolidWorks**.
+
+The wireframe model is used to represent:
+
+* Suspension hardpoints
+* Control arm geometry
+* Steering linkage
+* Pushrod and rocker geometry
+* Damper mounting locations
+* Spatial relationship between suspension components
+
+The SolidWorks work in this project is limited to **wireframe geometry development** and does not include a complete 3D component or suspension assembly.
+
+---
+
+## Software & Tools Used
+
+* **MATLAB:** Mathematical modeling, numerical calculations, and vehicle dynamics simulation.
+* **Simulink:** Dynamic system modeling and transient vehicle simulations.
+* **SolidWorks:** Suspension hardpoint visualization and wireframe geometry development.
+
+---
+
+## Current Progress
 
 ### Completed
 
-- Literature Survey
-- Quarter Car Model Development
-- Full Car Model Development
-- Curb-Hit Analysis
-- Bicycle Model Development
-- 1.2g High-Speed Cornering Analysis
-- Tire Load Transfer Analysis
-- Suspension Hardpoint Design
-- AutoCAD Suspension Geometry
-
-### Future Work
-
-- Camber Gain Analysis
-- Roll Center Migration
-- Track Width Variation Analysis
-- Abaqus Structural Analysis
-- Suspension Optimization
-- Final Validation
+* Literature Survey
+* Quarter Car Model
+* Full Car Model
+* Curb-Hit Analysis
+* Bicycle Model
+* High-Speed Cornering Analysis
+* Tire Load Transfer Analysis
+* Suspension Hardpoint Development
+* Double Wishbone Suspension Geometry
+* SolidWorks Wireframe Model
+* Suspension Kinematic Analysis
+* Roll Centre Migration Analysis
+* Motion Ratio Analysis
 
 ---
 
@@ -235,24 +259,34 @@ Double Wishbone Suspension
 ```text
 Project/
 │
-├── Quarter_Car_Model/
-├── Full_Car_Model/
-├── Bicycle_Model/
-├── Tire_Load_Transfer/
-├── Hardpoint_Design/
-├── AutoCAD_Models/
-├── Results/
-├── Documentation/
-└── README.md
+├── Quarter_Car_Model/         # Vertical ride dynamics
+├── Full_Car_Model/            # Heave, roll, pitch & wheel dynamics
+├── Bicycle_Model/             # Vehicle handling & yaw dynamics
+├── Curb_Hit_Analysis/         # Transient curb-hit analysis
+├── Tire_Load_Transfer/        # Dynamic tire load transfer
+├── Hardpoint_Design/           # Suspension hardpoints & coordinates
+├── Kinematic_Analysis/         # Suspension kinematic analysis
+├── Roll_Centre_Migration/      # Roll centre analysis
+├── Motion_Ratio/               # Motion ratio analysis
+├── Results/                    # Simulation and analysis outputs
+└── README.md                   # Project documentation summary
 ```
 
 ---
 
-## Author
+## Project Scope
 
-**Raavi Chandra Siddhartha**
+The project establishes a workflow from **vehicle dynamics modeling to suspension hardpoint development and kinematic analysis**.
+
+The developed models are used to study vehicle ride, handling, transient response, and tire load transfer, while the suspension hardpoints and SolidWorks wireframe geometry are used to investigate suspension kinematics, roll centre migration, and motion ratio.
+
 ---
-**Bhairam Hasini Mourya**
+
+## Authors
+
+* **Raavi Chandra Siddhartha** — Indian Institute of Technology Indore
+* **Bhairam Hasini Mourya** — Indian Institute of Technology Indore
+
 ---
 Indian Institute of Technology Indore
 
